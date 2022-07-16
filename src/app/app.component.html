@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <ul [ngClass]="'listOfElements'">
+      <li *ngFor="let item of listItem">{{ item }}</li>
+    </ul>
+    <br />
+    Insertar Item<input
+      [(ngModel)]="texto"
+      type="text"
+      id="valorAInsertar"
+      (change)="InsertarItem(texto)"
+    />
+    <br />
+    <button (click)="EliminarUltimo(texto)">Eliminar último Item</button>
+    <br />
+    Componente Padre: "Escriba un Valor y presione Enter al terminar"<input type="text" (change)="getValue($event)" />
+    <br />
+    <p>
+    <app-list-of-item [textoHijo]="textoPadre"></app-list-of-item>
+    </p>
+  </body>
+</html>
